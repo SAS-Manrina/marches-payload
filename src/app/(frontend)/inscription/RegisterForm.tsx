@@ -1,11 +1,13 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { registerUser } from './actions'
 
 const initialState = { success: false, error: '' }
 
 export default function RegisterForm() {
+  const router = useRouter()
   const [state, formAction, pending] = useActionState(
     async (_prev: typeof initialState, formData: FormData) => {
       return registerUser(formData)
@@ -13,15 +15,11 @@ export default function RegisterForm() {
     initialState,
   )
 
-  if (state.success) {
-    return (
-      <div className="register-success">
-        <h2>Compte créé avec succès !</h2>
-        <p>Vous pouvez maintenant vous connecter.</p>
-        <a href="/">Retour à l&apos;accueil</a>
-      </div>
-    )
-  }
+  useEffect(() => {
+    if (state.success) {
+      router.push('/inscription-organisation')
+    }
+  }, [state.success, router])
 
   return (
     <form className="register-form" action={formAction}>
