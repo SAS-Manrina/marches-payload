@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: spear_cassette
+      POSTGRES_PASSWORD: ySpF4Ll0KrgOWdbgEl
+      POSTGRES_DB: spear_cassette
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
