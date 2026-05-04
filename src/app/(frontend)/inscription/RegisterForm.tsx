@@ -4,14 +4,13 @@ import { useActionState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { registerUser } from './actions'
 
-const initialState = { success: false, error: '' }
+const initialState: { success: boolean; error?: string } = { success: false }
 
 export default function RegisterForm() {
   const router = useRouter()
   const [state, formAction, pending] = useActionState(
-    async (_prev: typeof initialState, formData: FormData) => {
-      return registerUser(formData)
-    },
+    (_prev: { success: boolean; error?: string }, formData: FormData) =>
+      registerUser(formData),
     initialState,
   )
 

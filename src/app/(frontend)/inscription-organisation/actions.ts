@@ -14,7 +14,7 @@ export async function registerOrganization(formData: FormData) {
 
   const name = formData.get('name') as string
   const businessName = formData.get('businessName') as string
-  const type = formData.get('type') as string
+  const type = formData.get('type') as 'association' | 'company' | 'freelance' | 'other' | null
   const siret = formData.get('siret') as string
   const tva = formData.get('tva') as string
   const description = formData.get('description') as string
@@ -24,8 +24,9 @@ export async function registerOrganization(formData: FormData) {
   const zipcode = formData.get('zipcode') as string
   const city = formData.get('city') as string
   const phone = formData.get('phone') as string
-  const presence = formData.get('presence') as string
-  const category = formData.getAll('category') as string[]
+  const presence = formData.get('presence') as 'chaque semaine' | '3 fois par mois' | '2 fois par mois' | '1 fois par mois' | null
+  type CategoryValue = 'fruits et legumes' | 'complement alimentaire' | 'conference' | 'viandes et charcuteries' | 'produits de la mer' | 'produits laitiers' | 'boulangerie et patisserie' | 'produit de la ruche' | 'oeuf et volailles' | 'boissons locales' | 'pepiniere' | 'chocolat et confiseries' | 'epices et condiments' | 'conserve et confitures' | 'articles en bois' | 'poteries' | 'decoration' | 'bijoux artisanaux' | 'vetement et accessoires' | 'bien-etre' | 'cosmetiques' | 'papeteries' | 'produits hygiene' | 'atelier' | 'glaces' | 'aromatique' | 'restauration' | 'sport' | 'boisson alcoolise'
+  const category = formData.getAll('category') as CategoryValue[]
 
   try {
     await payload.create({

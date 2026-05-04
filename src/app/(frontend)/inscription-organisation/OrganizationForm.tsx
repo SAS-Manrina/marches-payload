@@ -3,7 +3,7 @@
 import { useActionState } from 'react'
 import { registerOrganization } from './actions'
 
-const initialState = { success: false, error: '' }
+const initialState: { success: boolean; error?: string } = { success: false }
 
 const TYPE_OPTIONS = [
   { label: 'Association', value: 'association' },
@@ -53,9 +53,8 @@ const CATEGORY_OPTIONS = [
 
 export default function OrganizationForm() {
   const [state, formAction, pending] = useActionState(
-    async (_prev: typeof initialState, formData: FormData) => {
-      return registerOrganization(formData)
-    },
+    (_prev: { success: boolean; error?: string }, formData: FormData) =>
+      registerOrganization(formData),
     initialState,
   )
 
