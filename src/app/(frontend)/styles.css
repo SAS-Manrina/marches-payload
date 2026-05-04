@@ -2,6 +2,29 @@
   --font-mono: 'Roboto Mono', monospace;
 }
 
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 45px;
+  background: rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(60, 60, 60);
+
+  .navbar-login {
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    background: rgb(1000, 1000, 1000);
+    font-size: 15px;
+    font-weight: 500;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
 * {
   box-sizing: border-box;
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import './styles.css'
 
@@ -12,6 +13,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <nav className="navbar">
+          <Link className="navbar-login" href="/connexion">
+            Se connecter
+          </Link>
+        </nav>
         <main>{children}</main>
       </body>
     </html>
