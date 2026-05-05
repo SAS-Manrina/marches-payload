@@ -11,14 +11,12 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
-    <html lang="en">
+    <html lang="fr">
       <body>
         <nav className="navbar">
           <Link className="navbar-login" href="/inscription">
             S'inscrire
           </Link>
-        </nav>
-        <nav className="navbar">
           <Link className="navbar-login" href="/connexion">
             Se connecter
           </Link>

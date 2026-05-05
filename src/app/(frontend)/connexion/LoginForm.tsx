@@ -43,6 +43,12 @@ export default function LoginForm() {
       <button type="submit" disabled={pending}>
         {pending ? 'Connexion en cours…' : 'Se connecter'}
       </button>
+
+      <p style={{ textAlign: 'center', fontSize: '14px', margin: 0 }}>
+        <a href="/mot-de-passe-oublie" style={{ opacity: 0.6 }}>
+          Mot de passe oublié ?
+        </a>
+      </p>
     </form>
   )
 }
