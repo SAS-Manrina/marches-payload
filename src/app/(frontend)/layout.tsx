@@ -14,10 +14,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="fr">
       <body>
         <nav className="navbar">
-          <Link className="navbar-login" href="/inscription">
+          <Link className="navbar-btn" href="/inscription">
             S'inscrire
           </Link>
-          <Link className="navbar-login" href="/connexion">
+          <Link className="navbar-btn" href="/connexion">
             Se connecter
           </Link>
         </nav>

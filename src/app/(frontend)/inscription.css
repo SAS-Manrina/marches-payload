@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
   padding: 24px;
 }
@@ -9,6 +10,7 @@
 .register-card {
   width: 100%;
   max-width: 480px;
+  margin-bottom: 20px;
 
   h1 {
     font-size: 32px;
