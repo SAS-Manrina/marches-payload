@@ -64,6 +64,10 @@ export const Organizations: CollectionConfig = {
       type: 'text',
     },
     {
+      name: 'email',
+      type: 'email',
+    },
+    {
       name: 'phone',
       type: 'text',
     },

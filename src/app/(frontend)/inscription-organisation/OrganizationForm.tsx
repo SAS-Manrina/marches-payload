@@ -115,6 +115,11 @@ export default function OrganizationForm() {
 
       <div className="register-section-title">Coordonnées</div>
 
+      <div className="register-field">
+        <label htmlFor="email">Email</label>
+        <input id="email" name="email" type="email" />
+      </div>
+
       <div className="register-row">
         <div className="register-field">
           <label htmlFor="phone">Téléphone</label>

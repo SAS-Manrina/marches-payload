@@ -181,6 +181,7 @@ export interface Organization {
   address2?: string | null;
   zipcode?: string | null;
   city?: string | null;
+  email?: string | null;
   phone?: string | null;
   presence?: ('chaque semaine' | '3 fois par mois' | '2 fois par mois' | '1 fois par mois') | null;
   approvalStatus?: ('interesse' | 'en cours' | 'en attente' | 'refus') | null;
@@ -460,6 +461,7 @@ export interface OrganizationsSelect<T extends boolean = true> {
   address2?: T;
   zipcode?: T;
   city?: T;
+  email?: T;
   phone?: T;
   presence?: T;
   approvalStatus?: T;

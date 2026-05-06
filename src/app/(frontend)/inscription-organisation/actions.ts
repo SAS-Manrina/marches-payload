@@ -23,6 +23,7 @@ export async function registerOrganization(formData: FormData) {
   const address2 = formData.get('address2') as string
   const zipcode = formData.get('zipcode') as string
   const city = formData.get('city') as string
+  const email = formData.get('email') as string
   const phone = formData.get('phone') as string
   const presence = formData.get('presence') as 'chaque semaine' | '3 fois par mois' | '2 fois par mois' | '1 fois par mois' | null
   type CategoryValue = 'fruits et legumes' | 'complement alimentaire' | 'conference' | 'viandes et charcuteries' | 'produits de la mer' | 'produits laitiers' | 'boulangerie et patisserie' | 'produit de la ruche' | 'oeuf et volailles' | 'boissons locales' | 'pepiniere' | 'chocolat et confiseries' | 'epices et condiments' | 'conserve et confitures' | 'articles en bois' | 'poteries' | 'decoration' | 'bijoux artisanaux' | 'vetement et accessoires' | 'bien-etre' | 'cosmetiques' | 'papeteries' | 'produits hygiene' | 'atelier' | 'glaces' | 'aromatique' | 'restauration' | 'sport' | 'boisson alcoolise'
@@ -43,6 +44,7 @@ export async function registerOrganization(formData: FormData) {
         address2: address2 || undefined,
         zipcode: zipcode || undefined,
         city: city || undefined,
+        email: email || undefined,
         phone: phone || undefined,
         presence: presence || undefined,
         category: category.length > 0 ? category : undefined,
