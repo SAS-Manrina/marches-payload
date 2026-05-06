@@ -37,7 +37,6 @@ export default async function ParticipationOrganisationPage({ params }: Props) {
   if (orgsResult.totalDocs === 0) redirect('/inscription-organisation')
 
   // Verify the requested organization belongs to this user
-  // Verify the requested organization belongs to this user
   const orgResult = await payload.find({
     collection: 'organizations',
     where: { and: [{ id: { equals: organizationId } }, { owner: { equals: user.id } }] },
@@ -47,6 +46,20 @@ export default async function ParticipationOrganisationPage({ params }: Props) {
 
   if (orgResult.totalDocs === 0) notFound()
   const org = orgResult.docs[0]! as Organization
+
+  if (!org.active) {
+    return (
+      <div className="register-page">
+        <div className="register-card">
+          <h1>Organisation inactive</h1>
+          <p style={{ textAlign: 'center', opacity: 0.6 }}>
+            {`L'organisation ${org.name} n'a pas été validée et ne peut pas être inscrite à un marché.
+            Veuillez contacter un administrateur pour plus d'informations.`}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   // Load the market with its venue
   const marketResult = await payload.find({

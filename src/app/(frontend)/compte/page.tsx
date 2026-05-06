@@ -67,17 +67,23 @@ export default async function ComptePage() {
           <p className="compte-empty">Aucun événement à venir.</p>
         ) : (
           <ul className="compte-orgs">
-            {upcomingMarkets.filter(m => !participationMarketIds.includes(m.id) ).map((market) => {
+            {upcomingMarkets.map((market) => {
               const venue = typeof market.venue === 'object' ? market.venue : null
               const startDate = new Date(market.startDate).toLocaleDateString('fr-FR')
               const endDate = new Date(market.endDate).toLocaleDateString('fr-FR')
+              const subscribed = participationMarketIds.includes(market.id);
               return (
                 <li key={market.id} className="compte-org-card">
                   {venue && <div className="compte-org-name">{venue.name}</div>}
                   <div className="compte-org-meta">
                     {startDate === endDate ? startDate : `${startDate} – ${endDate}`}
                   </div>
-                  {organizations.length > 0 && (
+                  {organizations.length > 0 && subscribed && (
+                    <div className="compte-org-meta" style={{ marginTop: 6 }}>
+                      Vous êtes inscrit.e
+                    </div>
+                  )}
+                  {organizations.length > 0 && !subscribed && (
                     <div className="compte-org-meta" style={{ marginTop: 6 }}>
                       {organizations.map((org) => (
                         <a
