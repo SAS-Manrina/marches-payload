@@ -1,5 +1,6 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { fr } from '@payloadcms/translations/languages/fr'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -23,6 +24,10 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Organizations, Venues, Markets, Participations],
+  i18n: {
+    fallbackLanguage: 'fr',
+    supportedLanguages: { fr },
+  },
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
